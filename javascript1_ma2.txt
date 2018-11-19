@@ -1,10 +1,61 @@
 //MODULE ASSIGNMENT 2 - LEVEL 1
 
 1. What is a function literal?
+ - A Function Literal is an expression that defines an undefined function.
+   When you start making a function literal, instead of defining a function with a name, you
+   make a variable with a name, and where you would usually put the value, you would instead
+   place the function. While it is stored in a variable, when you decide to use the function, 
+   you would call the function like normal, but with the name of the function, not the variable.
+
 
 2. What is the constructor?
+   -A constructor can be called a blueprint for a function. A constructor can let you create many 
+   objects with similar types. An example is
+
+	function Pokemon(pokepower, size, sound) {
+		this.pokemonPower = pokepower;	
+		this.pokemonSize = size;
+		this.pokemonSound = sound;
+	}
+
+   Now when I want to create multiple different objects with the same types that
+   I previously defined in the Pokemon function, I can do this;
+	
+	var charmander = new Pokemon("Fire", "0.5m", "noisy");
+	var bulbasaur = new Pokemon("Grass", "0.4m", "silent");
+	var squirtle = new Pokemon("Water", "0.6m", "noisy");
+
+   What this does, is make objects in the code we dont directly see, and when you try to for
+   example ask for this object in the console by typing the new object, you will get something like
+   these results (just using charmander as the example here);
+
+			(*typed "charmander" in console)
+	>charmander*	
+	Pokemon {
+		pokemonPower : "Fire", 
+		pokemonSize : "0.5", 
+		pokemonSound : "noisy"
+		}
+
+While the creation of these objects typically call the function like seemingly "usual", a way to identify
+constructors, is to look for both the "new" keyword being used with the function call, as well as
+having a Capital first letter on the constructor name. The reasoning for uppercase letter is to
+more easily seperate constructor functions, from regular functions.
+
 
 3. What does the return statement do?
+
+ - The "Return" statement stops/interrupts the function immediatly and returns a value to where
+ the function is being called.
+example;
+
+function logInfo() {
+ return console.log("This will get logged because it is right before return stops the function");
+ console.log("This wont be logged");
+}
+
+logInfo();
+
 
 4. What will be written to the console from this function:
 		function myFunction(){
@@ -13,5 +64,17 @@
 		}
 		myFunction();
 
+ - "inside my function" will be written to the console from this function.
+
 
 5. Briefly describe scope in JavaScript.
+
+-Scope can be defined as multiple layers of circles. In the middle circle you have access to some resources,
+ but only those within that circle can access those resources. Around that circle you have another circle.
+ The middle circle can access both its own, and the outside circles resources. Then outside the second you have
+ another circle. The second circle can not access the middle circle, but it can access its own resources, as well
+ as the third`s. While this might seem like a poor analogy, for me it helped me understand how scope works.
+ Scope essentially tells what variables can be accessed by a function or not. When you declare a variable inside
+ a function, its called local scope, and only the function can use it. If you declare a variable outside 
+ the/all function(s), its called global scope, and the variables can be used by all the functions which have these
+ variables "outside" of them. 
